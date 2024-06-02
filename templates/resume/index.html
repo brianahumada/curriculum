@@ -1,0 +1,18 @@
+{% extends 'resume/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    {% for photo in personal_info.photos.all %}
+        <img src="{{  photo.image.url }}" alt="Mi Foto" class="" style="width: 300px;">
+    {% endfor %}
+    <h1 class="display-4">Bienvenido a mi sitio web</h1>
+    <p class="lead">Hola, soy {{ personal_info.name}}, un desarrollador apasionado por la tecnología y la innovación. ¡Explora mi sitio para conocer más sobre mí y mi trabajo!</p>
+    <!-- O puedes usar un video -->
+    <!-- <video class="img-fluid" controls>
+        <source src="" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video> -->
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+body{
+    background: #433434;
+}
+h2{
+    color: aliceblue;
+}
+p{
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(24, 24, 50);
+}
+.section-title {
+     margin-top: 20px;
+}
+
+.list-group-item {
+     margin-bottom: 10px;
+}
+.card {
+    margin-bottom: 30px;
+    
+}
+.custom-photo {
+    border-radius: 30px!important;
+    /* Redondear bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)!important;
+    /* Sombra */
+    transition: transform 0.3s, box-shadow 0.3s!important;
+    /* Transición para animaciones */
+    margin: 15px 0!important;
+    /* Espaciado superior e inferior */
+}
+
+/* Efecto al pasar el ratón */
+.custom-photo:hover {
+    transform: scale(1.05)!important;
+    /* Escala ligeramente la imagen */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)!important;
+    /* Aumentar sombra */
+}
+
+/* Clase para ajustar el tamaño de las fotos */
+
+.custom-photo-large {
+    width: 100%!important;
+    /* Ajustar tamaño completo */
+}

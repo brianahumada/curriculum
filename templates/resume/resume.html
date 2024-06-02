@@ -1,0 +1,102 @@
+{% extends 'resume/base.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">{{ personal_info.name }}</h1>
+                <p class="card-text">{{ personal_info.address }}</p>
+                <p class="card-text">{{ personal_info.phone }}</p>
+                <p class="card-text">{{ personal_info.email }}</p>
+                <p class="card-text"><a href="{{ personal_info.linkedin }}" target="_blank">LinkedIn</a></p>
+                <p class="card-text"><a href="{{ personal_info.github }}" target="_blank">Github</a></p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Experiencia Laboral</h2>
+        </div>
+        <ul class="list-group">
+            {% for experience in work_experiences %}
+                <li class="list-group-item">
+                    <h5><strong>{{ experience.company }}</strong></h5>
+                    <p>{{ experience.position }} ({{ experience.start_date }} - {% if experience.end_date %}{{ experience.end_date }}{% else %}Presente{% endif %})</p>
+                    <p>{{ experience.responsibilities }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="section-title">
+            <h2>Educación</h2>
+        </div>
+        <ul class="list-group">
+            {% for education in educations %}
+                <li class="list-group-item">
+                    <h5><strong>{{ education.institution }}</strong></h5>
+                    <p>{{ education.degree }} ({{ education.graduation_date }})</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="section-title">
+            <h2>Habilidades</h2>
+        </div>
+        <ul class="list-group">
+            {% for skill in skills %}
+                <li class="list-group-item">{{ skill.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="section-title">
+            <h2>Certificaciones</h2>
+        </div>
+        <ul class="list-group">
+            {% for certification in certifications %}
+                <li class="list-group-item">
+                    <h5><strong>{{ certification.name }}</strong></h5>
+                    <p>{{ certification.institution }} ({{ certification.date_obtained }})</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="section-title">
+            <h2>Idiomas</h2>
+        </div>
+        <ul class="list-group">
+            {% for language in languages %}
+                <li class="list-group-item">{{ language.name }} - {{ language.proficiency }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="section-title">
+            <h2>Proyectos</h2>
+        </div>
+        <ul class="list-group">
+            {% for project in projects %}
+                <li class="list-group-item">
+                    <h5><strong>{{ project.name }}</strong></h5>
+                    <p>{{ project.description }}</p>
+                    <p>Rol: {{ project.role }}</p>
+                    <p>Resultados: {{ project.results }}</p>
+                    <p><a href="{{ project.url }}" target="_blank">Github</a></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{ project.foto1.url }}" class="img-fluid custom-photo custom-photo-large" alt="Foto 1 de {{ project.name }}">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{ project.foto2.url }}" class="img-fluid custom-photo custom-photo-large" alt="Foto 2 de {{ project.name }}">
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
